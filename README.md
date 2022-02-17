@@ -21,14 +21,14 @@ CC-BY-SA 4.0, see attached License.md
 ## Data
 
 ### Training dataset - Epigraphic Database Heidelberg
-- see a series of scripts in [EDH_ETL Repository](https://github.com/sdam-au/EDH_ETL) used to access and clean the tabular attributes of the dataset and the text of inscriptions.
+For details see a series of scripts in [EDH_ETL Repository](https://github.com/sdam-au/EDH_ETL) used to access and clean the tabular attributes of the dataset and the text of inscriptions.
 
 `https://sciencedata.dk/public/b6b6afdb969d378b70929e86e58ad975/EDH_text_cleaned_2021-01-21.json`
 
 [EDH dataset metadata](https://docs.google.com/spreadsheets/d/1O_4EH-POKqUgq5K-B1DbbJQ8WWF0NQ6s12dCiW29MbA/edit?usp=sharing)
 
 ### Target dataset - Epigraphic Database Clauss Slaby
-- see a series of scripts in [EDCS_ETL Repository](https://github.com/sdam-au/EDCS_ETL) used to access and clean the tabular attributes of the dataset and the text of inscriptions.
+FOr details see a series of scripts in [EDCS_ETL Repository](https://github.com/sdam-au/EDCS_ETL) used to access and clean the tabular attributes of the dataset and the text of inscriptions.
 
 `https://sciencedata.dk/public/1f5f56d09903fe259c0906add8b3a55e/EDCS_text_cleaned_2022-02-15.json` 
 
@@ -36,33 +36,39 @@ CC-BY-SA 4.0, see attached License.md
 
 
 ### Other data
-1. `data/EDCS_random100_inscrtype.csv` - sample of 100 randomly selected inscriptions manually labelled by Petra Hermankova (blind, without access to original EDCS labels)
-2. `data/labels_dictionary.csv` - Dictionary of labels between the training and the target datasets
+1. `data/EDCS_random100_inscrtype.csv` - sample of 100 randomly selected inscriptions manually labelled by Petra Hermankova (blind, without access to original EDCS labels, only to ID, Material and the original and cleaned text of the inscription)
+1. `data/EDCS_to_EDH_types_inscr_dictionary.csv` - dictionary containing approximate translation of labels between the training and the target datasets
+1. `data/EDCS_types_inscr.csv` - all labels used in the target dataset for the type of inscription
+1. `data/EDH_types_inscr.csv` - all labels used in the training dataset for the type of inscription
 
 ---
 
 ## Description
 
-Use attributes (sorted from the most important):
+To train the model, we use the following attributes:
 
 1. `clean_text_interpretive_word` = containing clean text of an inscription, text
-2. `type_of_inscription_clean` = containing cleaned typology for inscriptions, 22 unique categories
-3. `type_of_inscription_certainty` = containg binary values (certain, uncertain) stating the level of confidence of the classification in `type_of_inscription_clean` 
-4. `material_clean` = cleaned material of the inscribed object, 34 unique categories
-5. `type_of_monument_clean` = cleaned typology of types of inscribed objects
-6. `type_of_monument_certainty` = containg binary values (certain, uncertain) stating the level of confidence of the classification in `type_of_monument_clean`
-
-The target dataset has no formal typology, it contains the following attributes 
-1. `clean_text_interpretive_word` = containing clean text of an inscription
-2. `clean_text_conservative` = containing original text of inscription as appears on the physical object
-2. `material` = cleaned material of the inscribed object
+1. `clean_text_conservative` = containing original text of inscription as appears on the physical object
+1. `type_of_inscription_clean` = containing cleaned typology for inscriptions, 22 unique categories
+1. `type_of_inscription_certainty` = containg binary values (certain, uncertain) stating the level of confidence of the classification in `type_of_inscription_clean` 
+1. `material_clean` = cleaned material of the inscribed object, 34 unique categories
+1. `type_of_monument_clean` = cleaned typology of types of inscribed objects
+1. `type_of_monument_certainty` = containg binary values (certain, uncertain) stating the level of confidence of the classification in `type_of_monument_clean`
 
 *Scenario:* 
 Based on the training dataset generate a classification model that would help researchers classify inscritpions in the target dataset. 
 
+The target dataset contains the following attributes 
+1. `clean_text_interpretive_word` = containing clean text of an inscription
+1. `clean_text_conservative` = containing original text of inscription as appears on the physical object
+1. `material` = cleaned material of the inscribed object
+
 Ideal envisioned outcome of the model - numeric representation of a probability with which an inscription X from the target dataset falls into the categorisation of inscription types. For example, `inscription X from target dataset is categorised as 56 % milestone,  45 % decree,  10 % funerary inscription, 1 % list.`
 
-### Try me out
+For evaluation of the model we a) use the manually labelled data, and b) we contrast model-produced labels with the labels present in the EDCS (that however, follow a different taxonomy and allow for combination of labels, instead of assigning just one and thus are not immediately translatable to the taxonomy used in EDH, but can provide additional information)
+
+
+### Try the model out
 Interactive dashboard with the current model available at https://epigraphic-classifier.herokuapp.com/.
 The model was trained on Latin inscriptions from the [Epigraphic Database Heidelberg](https://edh-www.adw.uni-heidelberg.de/). The [Source code](https://github.com/petrifiedvoices/ancient-classifier), forked from [CHCAA Ancient-classifier](https://github.com/centre-for-humanities-computing/ancient-classifier/).
 
