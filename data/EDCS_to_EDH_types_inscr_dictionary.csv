@@ -1,16 +1,28 @@
-tituli honorarii
-tituli fabricationis
-leges
-tituli sacri
-miliaria
-carmina
-tituli operum
-tituli sepulcrales
-tituli possessionis
-inscriptiones christianae
-defixiones
-senatus consulta
-termini
-diplomata militaria
-reges
-signacula
+EDH_labels,EDCS_labels
+epitaph,tituli sepulcrales
+honorific inscription,tituli honorarii
+votive inscription,tituli sacri
+defixio,defixiones
+owner/artist inscription,tituli possessionis
+mile-/leaguestone,miliaria
+acclamation,
+boundary inscription,termini
+building/dedicatory inscription,tituli operum
+NULL,
+military diploma,diplomata militaria
+identification inscription,
+public legal inscription,leges; senatus consulta
+private legal inscription,leges
+label,
+list,
+calendar,
+seat inscription,
+elogium,
+assignation inscription,
+prayer,
+letter,
+adnuntiatio,
+,inscriptiones christianae
+,carmina
+,signaculum
+,reges
