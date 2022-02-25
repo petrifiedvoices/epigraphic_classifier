@@ -34,10 +34,11 @@ FOr details see a series of scripts in [EDCS_ETL Repository](https://github.com/
 
 
 ### Other data
-1. `data/EDCS_random100_inscrtype.csv` - sample of 100 randomly selected inscriptions manually labelled by Petra Hermankova (blind, without access to original EDCS labels, only to ID, Material and the original and cleaned text of the inscription)
-1. `data/EDCS_to_EDH_types_inscr_dictionary.csv` - dictionary containing approximate translation of labels between the training and the target datasets
-1. `data/EDCS_types_inscr.csv` - all labels used in the target dataset for the type of inscription
-1. `data/EDH_types_inscr.csv` - all labels used in the training dataset for the type of inscription
+1. `data/EDCS_random100_inscrtype_material.csv` - sample of 100 randomly selected inscriptions manually labelled by Petra Hermankova (blind, without access to original EDCS labels, only to ID, Material and the original and cleaned text of the inscription). This approach simulates the real work of human epigrapher, who considers their materiality as well as text when classifying inscriptions. 
+2. 1. `data/EDCS_random100_inscrtype_nomaterial.csv` - sample of 100 randomly selected inscriptions manually labelled by Petra Hermankova (blind, without access to original EDCS labels, only to ID and the original and cleaned text of the inscription). This approach simulates only work with the text, potentially leading to less precise results, as the material dimension is completely missing from the decision process.
+3. `data/EDCS_to_EDH_types_inscr_dictionary.csv` - dictionary containing approximate translation of labels between the training and the target datasets
+4. `data/EDCS_types_inscr.csv` - all labels used in the target dataset for the type of inscription
+5. `data/EDH_types_inscr.csv` - all labels used in the training dataset for the type of inscription
 
 ---
 
@@ -50,8 +51,8 @@ To train the model, we use the following attributes:
 1. `type_of_inscription_clean` = containing cleaned typology for inscriptions, 22 unique categories
 1. `type_of_inscription_certainty` = containg binary values (certain, uncertain) stating the level of confidence of the classification in `type_of_inscription_clean` 
 1. `material_clean` = cleaned material of the inscribed object, 34 unique categories
-1. `type_of_monument_clean` = cleaned typology of types of inscribed objects
-1. `type_of_monument_certainty` = containg binary values (certain, uncertain) stating the level of confidence of the classification in `type_of_monument_clean`
+1. `type_of_monument_clean` = cleaned typology of types of inscribed objects @jan DO WE USE THIS?
+1. `type_of_monument_certainty` = containg binary values (certain, uncertain) stating the level of confidence of the classification in `type_of_monument_clean` @jan DO WE USE THIS?
 
 The target dataset contains the following attributes 
 1. `clean_text_interpretive_word` = containing clean text of an inscription
