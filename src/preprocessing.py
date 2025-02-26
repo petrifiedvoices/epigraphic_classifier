@@ -101,4 +101,4 @@ if __name__ == "__main__":
     df_all = pd.DataFrame(edh.data_filtered)
     df = df_all.query('type_of_inscription_certainty == "Certain"')
     df.to_csv(
-        f'/home/jan/ancient-classifier/data/210416_certain_Y/edh_{len(df)}.csv')
+        f'data/210416_certain_Y/edh_{len(df)}.csv')

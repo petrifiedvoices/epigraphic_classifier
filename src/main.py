@@ -27,7 +27,7 @@ from parameter_grid import search_params_clf
 
 # %%
 # load data
-edh = pd.read_csv('/home/jan/ancient-classifier/data/210416_certain_Y/edh_56110.csv')
+edh = pd.read_csv('data/210416_certain_Y/edh_56110.csv')
 
 
 # %% 
@@ -148,7 +148,7 @@ res['ridge_smote'] = gs.grid_search_1_clf(
 #     kwargs_cv={'error_score': 'raise'}
 #     )
 
-with open('/home/jan/ancient-classifier/res/210505_res_ridge_max_resample.pickle', 'wb') as fout:
+with open('res/210505_res_ridge_max_resample.pickle', 'wb') as fout:
     pickle.dump(res, fout)
 
 print(res)

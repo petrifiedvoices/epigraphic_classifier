@@ -8,14 +8,14 @@ def plot_bar_confidence(source):
         tooltip=['type', 'confidence'],
         color=alt.condition(
             alt.datum.confidence > 0,
-            alt.value("steelblue"),  # The positive color
-            alt.value("orange")  # The negative color
+            alt.value("red"),  # The positive color
+            alt.value("steelblue")  # The negative color
         )
     ).configure_axis(
-        labelFontSize=12,
-        titleFontSize=12
+        labelFontSize=14,
+        titleFontSize=14
     ).properties(
-        width=700, height=400
+        width=800, height=600
     ).interactive()
 
     return plot
