@@ -27,7 +27,7 @@ from parameter_grid import search_params_clf
 
 # %%
 # load data
-edh = pd.read_csv('data/210416_certain_Y/edh_56110.csv')
+edh = pd.read_csv('../data/EDH_certain_Y/edh_56552.csv')
 
 
 # %% 

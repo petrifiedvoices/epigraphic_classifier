@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-@st.cache
+@st.cache_resource
 def extract_decision_function(transformer, model, user_input):
     '''
     Returns a) assigned labels, b) melted df with prediction confidence per every label

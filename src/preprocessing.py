@@ -11,7 +11,7 @@ class EDH():
     '''
     def __init__(self) -> None:
         # where is the input EDH dataset
-        self.path_raw_dataset = '/home/jan/epigraphic_roads/data/EDH_text_cleaned_2021-01-21.json'
+        self.path_raw_dataset = '../data/large_data/EDH_text_cleaned_2022-11-03.json'
         # fields of interest
         self.keys_to_extract = [
             'type_of_inscription_clean', 'type_of_inscription_certainty',
@@ -101,4 +101,4 @@ if __name__ == "__main__":
     df_all = pd.DataFrame(edh.data_filtered)
     df = df_all.query('type_of_inscription_certainty == "Certain"')
     df.to_csv(
-        f'data/210416_certain_Y/edh_{len(df)}.csv')
+        f'../data/EDH_certain_Y/edh_{len(df)}.csv')
